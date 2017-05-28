@@ -1,5 +1,6 @@
 import qualified Data.List as L
 import qualified Data.Map as Map
+import qualified Data.Set as Set
 import Data.Char
 
 numUniques :: (Eq a) => [a] -> Int
@@ -55,3 +56,6 @@ phoneBookToMap xs = Map.fromListWith (\number1 number2 -> number1 ++ ", " ++ num
 
 phoneBookToMap' :: (Ord k) => [(k, a)] -> Map.Map k [a]
 phoneBookToMap' xs = Map.fromListWith (++) $ map (\(k,v) -> (k,[v])) xs
+
+text1 = "I just had an anime dream. Anime... Reality... Are they so different?"
+text2 = "The old man left his garbage can out and now his trash is all over my lawn!"
