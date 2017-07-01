@@ -19,3 +19,6 @@ flavor :: Person -> String
 flavor (Person _ _ _ _ _ flavor) = flavor
 
 data Car = Car String String Int deriving (Show)
+
+data Day = Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
+           deriving (Eq, Ord, Show, Read, Bounded, Enum)
