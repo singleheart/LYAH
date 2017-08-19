@@ -159,3 +159,16 @@ instance Functor' Tree where
 instance Functor' (Either a) where  
     fmap' f (Right x) = Right (f x)  
     fmap' f (Left x) = Left x  
+
+class Tofu t where
+  tofu :: j a -> t a j
+
+data Frank a b = Frank {frankField :: b a} deriving (Show)
+
+instance Tofu Frank where
+  tofu x = Frank x
+
+data Barry t k p = Barry { yabba :: p, dabba :: t k }
+
+instance Functor (Barry a b) where
+  fmap f (Barry {yabba = x, dabba = y}) = Barry {yabba = f x, dabba = y}
