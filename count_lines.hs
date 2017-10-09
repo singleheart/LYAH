@@ -11,4 +11,6 @@ toTry = do (fileName:_) <- getArgs
            putStrLn $ "The file has " ++ show (length (lines contents)) ++ " lines!"
 
 handler :: IOError -> IO ()
-handler e = putStrLn "Whoops, had some trouble!"
+handler e 
+    | isDoesNotExistError e = putStrLn "The file doesn't exist!"
+    | otherwise = ioError e
