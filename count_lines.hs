@@ -12,5 +12,7 @@ toTry = do (fileName:_) <- getArgs
 
 handler :: IOError -> IO ()
 handler e 
-    | isDoesNotExistError e = putStrLn "The file doesn't exist!"
+    | isDoesNotExistError e = 
+    case ioeGetFileName e of Just path -> putStrLn $ "Whoops! File does not exist at: " ++ path
+                             Nothing -> putStrLn "Whoops! File does not exist at unknown location!"
     | otherwise = ioError e
