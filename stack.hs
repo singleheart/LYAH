@@ -1,4 +1,4 @@
-import Control.Monad.State
+import Control.Monad.Trans.State.Lazy
 
 type Stack = [Int]
 
